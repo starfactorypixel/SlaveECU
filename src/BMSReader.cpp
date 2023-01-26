@@ -2,12 +2,13 @@
 #include <L2Wrapper.h>
 #include <BMSReader.h>
 
+BMSReader BMS;
 L2Wrapper L2;
 
 void setup()
 {
-    BMSParams q;
-    q.params.uptime;
+    
+    BMS.params.uptime;
     
     return;
 }

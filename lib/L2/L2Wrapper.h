@@ -7,7 +7,7 @@
 class L2Wrapper
 {
     public:
-        L2Wrapper();
+        L2Wrapper(){};
         
     private:
         
