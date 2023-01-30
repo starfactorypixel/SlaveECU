@@ -14,7 +14,7 @@ class BMSReader
 
 		using callback_t = void (*)(BMSPacket::params_t params);
 		
-		BMSReader(HardwareSerial &serial) : _serial(serial)
+		BMSReader() : _serial(PB11, PB10)
 		{
 			return;
 		}
@@ -24,10 +24,6 @@ class BMSReader
 		*/
 		void Init(callback_t callback)
 		{
-			// Не получилось убрать HardwareSerial внутрь класса.
-			//HardwareSerial _serial(PB11, PB10);
-			//_serial.setRx(PB11);
-			//_serial.setTx(PB10);
 			_serial.begin(19200, SERIAL_8N1);
 			
 			_packet.Init();
@@ -76,7 +72,7 @@ class BMSReader
 	
 	private:
 		
-		HardwareSerial &_serial;
+		HardwareSerial _serial;
 		BMSPacket _packet;
 		callback_t _callback;
 		

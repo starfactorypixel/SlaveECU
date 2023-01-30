@@ -2,10 +2,7 @@
 #include <L2Wrapper.h>
 #include <BMSReader.h>
 
-// Не получилось убрать HardwareSerial внутрь класса.
-HardwareSerial BMSSerial(PB11, PB10);
-BMSReader BMS(BMSSerial);
-
+BMSReader BMS;
 L2Wrapper L2;
 
 void OnBMSData(BMSPacket::params_t params);
