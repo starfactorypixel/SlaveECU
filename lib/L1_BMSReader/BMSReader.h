@@ -12,7 +12,7 @@ class BMSReader
 {
 	public:
 
-		using callback_t = void (*)(BMSPacket::params_t params);
+		using callback_t = void (*)(BMSPacket::params_t &params);
 		
 		BMSReader() : _serial(PB11, PB10)
 		{
@@ -41,6 +41,21 @@ class BMSReader
 			_serial.write(_packet.RequestData, sizeof(_packet.RequestData));
 			
 			return;
+		}
+		/*
+			Получить объект с данными BMS если он получен.
+		*/
+		bool GetParams(BMSPacket::params_t &params)
+		{
+			bool result = false;
+			
+			if(_packet.IsReady() == true)
+			{
+				params = _packet.params;
+				result = true;
+			}
+			
+			return result;
 		}
 		
 		/*
