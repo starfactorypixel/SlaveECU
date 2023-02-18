@@ -4,3 +4,4 @@
 .vscode/launch.json
 .vscode/ipch
 lib/L1_BMSReader/140_bytes_protocol.xlsx
+lib/L1_MotorController/doc/*
